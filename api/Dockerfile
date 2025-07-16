@@ -1,22 +1,22 @@
-# Use slim Python image
+# Use official Python slim image
 FROM python:3.10-slim
 
-# Install system dependencies (needed for LightGBM)
+# Install LightGBM dependency
 RUN apt-get update && apt-get install -y libgomp1 && rm -rf /var/lib/apt/lists/*
 
-# Set working directory
-WORKDIR /app/api
+# Set working directory inside the container
+WORKDIR /app
 
-# Copy and install dependencies
-COPY requirements.txt /app/api/
+# Copy requirements and install them
+COPY requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy API app code and models
-COPY ./api /app/api
-COPY ./models /app/models
+# Copy rest of the FastAPI app (main.py, models/)
+COPY . .
 
-# Expose the port (Render uses 8000 by default)
+# Expose the port FastAPI will run on
 EXPOSE 8000
 
-# Start FastAPI server
+# Start the FastAPI server
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
