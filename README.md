@@ -1,5 +1,5 @@
 
-##  Product Demand Forecasting System with MLOps 
+##      Real Time Product Demand Forecasting System with End to End MLOps Pipeline
 
 An end-to-end Machine Learning system to forecast daily product sales across retail stores using historical data. Designed with full MLOps lifecycle in mind — from data ingestion to automated retraining and real-time monitoring.
 Product Demand Forecasting System with MLOps — Built a full-stack ML pipeline (XGBoost/LightGBM) with FastAPI, Streamlit, Airflow, Docker, and Prometheus for real-time sales forecasting and automated retraining.
@@ -252,7 +252,7 @@ Param Patil @IIT Roorkee Data Science
 *Machine Learning & MLOps Engineer*
 📧 [paramhiralalpatil@gmail.com],
 🔗 [GitHub](https://github.com/Param-Patil),
-🔗 [LinkedIn](linkedin.com/in/param-hp)
+   [LinkedIn](linkedin.com/in/param-hp)
 
 ---
 
