@@ -1,0 +1,6 @@
+Store,DayOfWeek,Promo,SchoolHoliday,StoreType,Assortment,CompetitionDistance,Promo2,Date
+1,2,1,0,a,a,250.0,0,2025-07-15
+2,4,0,1,b,b,1000.0,1,2025-07-16
+3,1,1,0,c,a,300.0,0,2025-07-17
+4,5,0,1,d,c,120.0,1,2025-07-18
+5,3,1,0,a,b,800.0,0,2025-07-19

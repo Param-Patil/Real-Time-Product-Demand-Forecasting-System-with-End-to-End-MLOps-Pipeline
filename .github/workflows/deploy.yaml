@@ -1,0 +1,29 @@
+name: 🚀 Deploy to Render on Push
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'api/**'
+      - 'dashboards/**'
+      - 'models/**'
+      - 'render.yaml'
+      - '.github/workflows/**'
+
+jobs:
+  deploy-fastapi:
+    name: 🔁 Deploy FastAPI API
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger FastAPI Redeploy
+        run: |
+          curl -X POST https://api.render.com/deploy/${{ secrets.RENDER_API_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+
+  deploy-streamlit:
+    name: 🔁 Deploy Streamlit Dashboard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Streamlit Redeploy
+        run: |
+          curl -X POST https://api.render.com/deploy/${{ secrets.RENDER_DASHBOARD_ID }}?key=${{ secrets.RENDER_API_KEY }}

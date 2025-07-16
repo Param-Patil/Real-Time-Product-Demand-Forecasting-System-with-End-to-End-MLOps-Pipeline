@@ -1,0 +1,45 @@
+#docker-compose
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: fastapi-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+    restart: always
+
+  dashboard:
+    build:
+      context: ./dashboards
+      dockerfile: Dockerfile
+    container_name: streamlit-dashboard
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    volumes:
+      - ./models:/app/models
+    restart: always
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./monitoring/grafana:/var/lib/grafana
+    depends_on:
+      - prometheus

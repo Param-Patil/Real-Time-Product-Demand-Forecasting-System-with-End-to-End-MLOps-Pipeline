@@ -1,0 +1,41 @@
+#requirements.txt
+
+# Core Data Science
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+python-multipart
+
+# Modeling
+xgboost
+lightgbm
+optuna
+evidently
+
+# Experiment Tracking
+mlflow
+
+# API
+fastapi
+uvicorn
+
+# Dashboard
+streamlit
+
+# Utilities
+pyyaml
+joblib
+
+# Notebook
+jupyter
+
+# Orchestration (optional, for later)
+apache-airflow
+
+prometheus-fastapi-instrumentator
+pytest
+python-dotenv
+plotly
+pydantic
