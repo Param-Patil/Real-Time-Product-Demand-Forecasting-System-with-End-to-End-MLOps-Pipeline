@@ -9,8 +9,8 @@ Automated model retraining via Apache Airflow and deployed containerized service
 Enabled full MLOps lifecycle: data ingestion, model training, batch/real-time prediction, monitoring, and retraining, all deployable on AWS EC2 or Render.
 
 Deployed App Links:
-[Live Backend app](https://fastapi-c4xn.onrender.com),
-[Live Frontend app](https://stramlit-dashboard.onrender.com)
+[Live Backend app](https://api1-g6d4.onrender.com),
+[Live Frontend app](https://streamlit-dashboard-qm99.onrender.com)
 
  Dataset
 
@@ -57,39 +57,47 @@ Forecast daily sales for Rossmann stores using historical sales, promotions, hol
 
 ```bash
 product-demand-forecasting-mlops/
-├── api/
+├── src/                         #  Core ML scripts
+│   ├── train.py                 # Train both XGBoost and LightGBM
+│   ├── predict.py               # Shared logic for loading models & inference
+│   ├── utils.py                 # Preprocessing, metrics, etc.
+│   ├── __init__.py
+│
+├── api/                         #  FastAPI backend
 │   ├── main.py
-│   └── models/
+│   ├── requirements.txt         # FastAPI dependencies
+│   ├── Dockerfile
+│   └── models/                  # API will load models from here
 │       ├── xgboost_model.pkl
 │       ├── xgboost_columns.pkl
+│       ├── xgboost_metrics.json
 │       ├── lightgbm_model.pkl
-│       └── lightgbm_columns.pkl
+│       ├── lightgbm_columns.pkl
+│       └── lightgbm_metrics.json
 │
-├── dashboards/
+├── dashboards/                  #  Streamlit frontend
 │   ├── app.py
 │   ├── batch_predict.py
-│   └── models/
-│       ├── xgboost_model.pkl
-│       ├── xgboost_columns.pkl
-│       ├── lightgbm_model.pkl
-│       └── lightgbm_columns.pkl
+│   ├── requirements.txt         # Streamlit dependencies
+│   ├── Dockerfile
+│   └── models/                  # Frontend models (copied from API during build)
+│       └── same as API/models/
 │
-├── models/
-│   ├── xgboost_model.pkl
-│   ├── xgboost_columns.pkl
-│   ├── lightgbm_model.pkl
-│   └── lightgbm_columns.pkl
-│
-├── data/
+├── data/                        #  Raw & processed datasets
 │   ├── raw/
-│   │   └── train.csv         # (to be added by user)
-│   │   └── store.csv         # (to be added by user)
-│   └── processed/            # (optional - created during preprocessing)
+│     ├── train.csv
+│     ├── test.csv
+│     └── store.csv
 │
-├── prepare_deploy.py
-├── requirements.txt
-├── Dockerfile
-└── .gitignore
+├── docker-compose.yaml          #  Compose FastAPI + Streamlit
+├── render.yaml                  #  Optional Render deploy file
+├── prepare_deploy.py            # Copies models to both backend/frontend
+├── .env                         # Contains API_URL, secrets
+├── requirements.txt 
+├── .gitignore
+└── README.md
+
+
 <<<<<<< HEAD
 =======
 
