@@ -11,7 +11,7 @@ st.set_page_config(page_title=" Product Demand Forecasting", layout="wide")
 
 # === Load Environment Variables ===
 load_dotenv()
-API_BASE = os.getenv("API_URL", "https://api1-g6d4.onrender.com/predict")  # use http://localhost:8000 for local if running render then use backend app render url
+API_BASE = os.getenv("API_URL", "https://api1-g6d4.onrender.com")  # use http://localhost:8000 for local if running render then use backend app render url
 
 # === App Title ===
 st.title(" Product Demand Forecasting App")
