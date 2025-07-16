@@ -4,7 +4,7 @@ FROM python:3.10-slim
 RUN apt-get update && apt-get install -y libgomp1
 
 # Set working directory inside container
-WORKDIR /app
+WORKDIR /app/api
 
 # Install Python dependencies
 COPY requirements.txt .
