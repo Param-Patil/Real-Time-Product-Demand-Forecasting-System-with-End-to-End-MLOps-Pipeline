@@ -2,7 +2,7 @@ services:
   - type: web
     name: demand-api
     env: docker
-    repo: https://github.com/your-username/product-demand-forecasting-mlops
+    repo: https://github.com/Param-Patil/Real-Time-Product-Demand-Forecasting-System-with-End-to-End-MLOps-Pipeline
     dockerfilePath: ./api/Dockerfile
     rootDir: api
     plan: free
@@ -11,7 +11,7 @@ services:
   - type: web
     name: demand-dashboard
     env: docker
-    repo: https://github.com/your-username/product-demand-forecasting-mlops
+    repo: https://github.com/Param-Patil/Real-Time-Product-Demand-Forecasting-System-with-End-to-End-MLOps-Pipeline
     dockerfilePath: ./dashboards/Dockerfile
     rootDir: dashboards
     plan: free
