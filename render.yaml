@@ -1,20 +1,18 @@
 services:
   - type: web
-    name: fastapi-api
+    name: demand-api
     env: docker
-    repo: https://github.com/Param-Patil/Product-Demand-Forecasting-System-with-MLOps
-    branch: main
+    repo: https://github.com/your-username/product-demand-forecasting-mlops
+    dockerfilePath: ./api/Dockerfile
     rootDir: api
-    dockerfilePath: Dockerfile
     plan: free
     autoDeploy: true
 
   - type: web
-    name: streamlit-dashboard
+    name: demand-dashboard
     env: docker
-    repo: https://github.com/Param-Patil/Product-Demand-Forecasting-System-with-MLOps
-    branch: main
+    repo: https://github.com/your-username/product-demand-forecasting-mlops
+    dockerfilePath: ./dashboards/Dockerfile
     rootDir: dashboards
-    dockerfilePath: Dockerfile
     plan: free
     autoDeploy: true
