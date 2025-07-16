@@ -23,7 +23,7 @@ app.add_middleware(
 
 # === Logging Setup (UTF-8 safe with emoji support) ===
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-MODELS_DIR = os.path.join(BASE_DIR, "models")      # for render MODELS_DIR = os.path.join(os.path.dirname(__file__), "models")
+MODELS_DIR = os.path.join(os.path.dirname(__file__), "models")     #MODELS_DIR = os.path.join(BASE_DIR, "models")      # for local 
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 
