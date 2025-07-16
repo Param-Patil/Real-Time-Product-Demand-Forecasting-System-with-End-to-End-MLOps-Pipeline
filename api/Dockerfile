@@ -1,5 +1,8 @@
 FROM python:3.10-slim
 
+# System dependencies for LightGBM
+RUN apt-get update && apt-get install -y libgomp1
+
 # Set working directory inside container
 WORKDIR /app
 
