@@ -230,8 +230,8 @@ docker-compose up --build -d
 
 ```bash
 sudo apt update && sudo apt install docker.io docker-compose -y
-git clone https://github.com/<your-username>/product-demand-forecasting-mlops
-cd product-demand-forecasting-mlops
+git clone https://github.com/Param-Patil/Real-Time-Product-Demand-Forecasting-System-with-End-to-End-MLOps-Pipeline
+cd Real-Time-Product-Demand-Forecasting-System-with-End-to-End-MLOps-Pipeline
 python prepare_deploy.py
 docker-compose up --build -d
 ```
